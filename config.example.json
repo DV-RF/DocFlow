@@ -1,0 +1,9 @@
+{
+  "pasta_origem": "C:\\caminho\\para\\pasta\\monitorada",
+  "pasta_destino": "C:\\caminho\\para\\pasta\\organizada",
+  "intervalo_minutos": 15,
+  "tema": "dark",
+  "iniciar_com_windows": false,
+  "notificacoes": true,
+  "tesseract_path": "C:\\Program Files\\Tesseract-OCR\\tesseract.exe"
+}

@@ -1,0 +1,19 @@
+__pycache__/
+*.pyc
+temp_*.pdf
+
+# Configuração local com caminhos reais de pastas — não versionar
+config.json
+
+# Pastas de dados/teste que podem conter documentos reais
+teste_desc_rc_temp/
+*.pdf
+*.jpeg
+*.jpg
+*.png
+!docs/**/*.png
+
+# Build
+build/
+dist/
+*.spec
