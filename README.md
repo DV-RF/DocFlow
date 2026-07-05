@@ -12,27 +12,7 @@ DocFlow é um sistema desktop que lê, identifica, une e organiza automaticament
 
 ---
 
-## Capturas de tela
-
-<!--
-Adicione aqui as imagens reais da aplicação em funcionamento.
-Sugestão: crie uma pasta "docs/" na raiz do projeto e coloque os arquivos:
-  docs/dashboard.png     → tela principal, com a pasta monitorada e o histórico
-  docs/configuracoes.png → tela de configuração de pastas
-  docs/historico.png     → aba de histórico de processamento
-
-Depois, descomente e ajuste as linhas abaixo:
-
-![Dashboard do DocFlow](docs/dashboard.png)
-![Configurações](docs/configuracoes.png)
-![Histórico de processamento](docs/historico.png)
--->
-
-*(imagens em breve)*
-
----
-
-## O problema
+## 📋 O problema
 
 Empresas de transporte de carga lidam diariamente com um volume grande de documentos financeiros:
 
@@ -52,7 +32,7 @@ O processo manual de organizar tudo isso segue estes passos:
 
 Feito à mão, isso consome horas por dia e é sujeito a erros: arquivos com nome errado, valor trocado, documentos que nunca se encontram.
 
-## A solução
+## ✅ A solução
 
 O DocFlow automatiza esse processo inteiro:
 
@@ -68,24 +48,24 @@ O que antes levava horas passa a ser feito em poucos minutos, sem intervenção 
 
 ---
 
-## Como o sistema está organizado
+## 🧩 Como o sistema está organizado
 
 O DocFlow processa três categorias de documento, cada uma com sua própria lógica de identificação.
 
-### Módulo Logística
+### 🚛 Módulo Logística
 Fretes (CT-e) e Ordens de Carregamento (OC): adiantamentos, saldos, descargas, diárias, licenças, paletização. Também reconhece recibos de descarga fotografados, não apenas PDFs digitais.
 
-### Módulo RH
+### 👔 Módulo RH
 Folha de pagamento e pró-labore de colaboradores.
 
-### Módulo Financeiro
+### 💰 Módulo Financeiro
 Boletos de concessionárias, guias de ICMS/SEFAZ com identificação automática do estado, recibos de despesas de funcionários (alimentação, passagem, limpeza) e recargas de pedágio eletrônico.
 
 Cada módulo combina três fontes de informação: leitura de texto nativo do PDF quando disponível, OCR quando o documento é uma imagem ou comprovante fotografado, e regras de correspondência (número de contrato, palavras-chave, nome do fornecedor) para encontrar o par certo entre comprovante e documento.
 
 ---
 
-## Tecnologias utilizadas
+## 🛠️ Tecnologias utilizadas
 
 | Tecnologia | Função |
 |---|---|
@@ -101,7 +81,7 @@ Cada módulo combina três fontes de informação: leitura de texto nativo do PD
 
 ---
 
-## Estrutura do projeto
+## 📁 Estrutura do projeto
 
 ```
 DocFlow/
@@ -136,7 +116,7 @@ DocFlow/
 
 ---
 
-## Como usar
+## 🚀 Como usar
 
 ### Pré-requisitos
 
@@ -181,7 +161,7 @@ O sistema abre a interface gráfica e começa a monitorar a pasta configurada, p
 
 ---
 
-## Segurança de dados
+## 🔒 Segurança de dados
 
 Este projeto foi desenvolvido para um caso de uso real de uma empresa. O código-fonte não contém dados sensíveis como CNPJ, CPF, nomes reais de clientes ou fornecedores, ou credenciais: apenas a lógica de extração e organização de documentos. Todos os exemplos em comentários usam dados fictícios.
 
@@ -189,7 +169,7 @@ Arquivos processados (comprovantes, contratos) nunca devem ser versionados no Gi
 
 ---
 
-## Roadmap
+## 🗺️ Roadmap
 
 - [ ] Módulo de NFS-e (nota fiscal de serviço eletrônica)
 - [ ] Nomenclatura centralizada (arquivo único de templates de nome por tipo de documento)
@@ -198,7 +178,7 @@ Arquivos processados (comprovantes, contratos) nunca devem ser versionados no Gi
 
 ---
 
-## Autor
+## 👨‍💻 Autor
 
 Desenvolvido por **DV-RF**
 
@@ -207,6 +187,6 @@ Desenvolvido por **DV-RF**
 
 ---
 
-## Licença
+## 📄 Licença
 
 Este projeto está sob uma licença de uso não comercial. Você pode estudar e usar o código para fins pessoais e educacionais, mas comercialização, revenda ou uso em produtos/serviços de terceiros exigem autorização prévia do autor. Veja o arquivo [LICENSE](LICENSE) para o texto completo.
