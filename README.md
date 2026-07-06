@@ -56,7 +56,7 @@ O DocFlow processa três categorias de documento, cada uma com sua própria lóg
 Fretes (CT-e) e Ordens de Carregamento (OC): adiantamentos, saldos, descargas, diárias, licenças, paletização. Também reconhece recibos de descarga fotografados, não apenas PDFs digitais.
 
 ### 👔 Módulo RH
-Folha de pagamento e pró-labore de colaboradores.
+Folha de pagamento de colaboradores e pró-labore.
 
 ### 💰 Módulo Financeiro
 Boletos de concessionárias, guias de ICMS/SEFAZ com identificação automática do estado, recibos de despesas de funcionários (alimentação, passagem, limpeza) e recargas de pedágio eletrônico.
