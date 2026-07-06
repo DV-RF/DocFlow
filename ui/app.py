@@ -10,6 +10,7 @@ from datetime import datetime, timedelta
 from tkinter import filedialog, messagebox
 
 import customtkinter as ctk
+from PIL import Image
 
 from core.pipeline import processar_arquivos
 from utils.config_manager import ConfigManager
@@ -31,6 +32,18 @@ def _caminho_icone() -> str:
     """Retorna o caminho do ícone, compatível com execução normal e com o .exe gerado pelo PyInstaller."""
     base = getattr(sys, "_MEIPASS", os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     return os.path.join(base, "assets", "icone.ico")
+
+
+def _logo_ctkimage(size: int = 28) -> "ctk.CTkImage | None":
+    """Carrega o ícone real do DocFlow como CTkImage, para uso no cabeçalho da interface."""
+    caminho = _caminho_icone()
+    if not os.path.exists(caminho):
+        return None
+    try:
+        img = Image.open(caminho).convert("RGBA")
+        return ctk.CTkImage(light_image=img, dark_image=img, size=(size, size))
+    except Exception:
+        return None
 
 
 _MESES_PT = {
@@ -71,10 +84,19 @@ class DocFlowApp(ctk.CTk):
         self.title("DocFlow")
         self.geometry("980x660")
         self.minsize(860, 580)
-        try:
-            self.iconbitmap(_caminho_icone())
-        except Exception:
-            pass  # ícone é cosmético — segue sem travar caso o arquivo não exista (ex: Linux/Mac)
+
+        def _aplicar_icone():
+            try:
+                self.iconbitmap(_caminho_icone())
+            except Exception:
+                pass  # ícone é cosmético — segue sem travar caso o arquivo não exista (ex: Linux/Mac)
+
+        # O customtkinter reseta o ícone da janela pouco depois da inicialização
+        # (comportamento conhecido da própria biblioteca). Aplicamos uma vez de
+        # imediato e outra com um pequeno atraso, para o ícone final ficar o nosso.
+        _aplicar_icone()
+        self.after(250, _aplicar_icone)
+
         self.protocol("WM_DELETE_WINDOW", self._minimizar_para_tray)
 
         self._build_ui()
@@ -102,7 +124,12 @@ class DocFlowApp(ctk.CTk):
         # ── Logo ──────────────────────────────────────────────────────
         logo = ctk.CTkFrame(sb, fg_color="transparent")
         logo.grid(row=0, column=0, padx=20, pady=(22, 6), sticky="ew")
-        ctk.CTkLabel(logo, text="🌊 DocFlow",
+
+        _logo_img = _logo_ctkimage()
+        if _logo_img:
+            ctk.CTkLabel(logo, image=_logo_img, text="").pack(side="left", padx=(0, 6))
+
+        ctk.CTkLabel(logo, text="DocFlow",
                      font=ctk.CTkFont(size=22, weight="bold")).pack(side="left")
         ctk.CTkLabel(logo, text=" v1.0", font=ctk.CTkFont(size=11),
                      text_color="gray").pack(side="left", pady=(5, 0))
